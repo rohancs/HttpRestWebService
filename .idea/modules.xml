@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Cache/Cache.iml" filepath="$PROJECT_DIR$/Cache/Cache.iml" />
       <module fileurl="file://$PROJECT_DIR$/HttpRestWebService.iml" filepath="$PROJECT_DIR$/HttpRestWebService.iml" />
-      <module fileurl="file://$PROJECT_DIR$/WebServices/WebServices.iml" filepath="$PROJECT_DIR$/WebServices/WebServices.iml" />
     </modules>
   </component>
 </project>

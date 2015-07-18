@@ -6,7 +6,7 @@ import java.io.ObjectOutputStream;
 import java.lang.instrument.Instrumentation;
 import java.util.*;
 
-public abstract class Cache<K,V> implements ICache<K,V> {
+public abstract class BaseCache<K,V> implements ICache<K,V> {
     HashMap<K,V> data = null;
     TreeMap<Long,K> lru = null;
     HashMap<K,Long> metadata = null;
@@ -15,18 +15,28 @@ public abstract class Cache<K,V> implements ICache<K,V> {
             ,cacheSizeElements=Integer.MAX_VALUE;
     static Instrumentation instrumentation;
 
-    public Cache(Properties properties) {
+    public BaseCache(Properties properties) {
         data = new HashMap<K, V>();
         lru = new TreeMap<Long, K>();
         metadata = new HashMap<K,Long>();
 
-        cacheDuration = Integer.parseInt(properties.getProperty("cacheDuration"));
-        cacheSizeBytes = Integer.parseInt(properties.getProperty("cacheSizeBytes"));
-        cacheSizeElements = Integer.parseInt(properties.getProperty("cacheSizeElements"));
+        try {
+            cacheDuration = Integer.parseInt(properties.getProperty("cacheDuration"));
+            cacheSizeBytes = Integer.parseInt(properties.getProperty("cacheSizeBytes"));
+            cacheSizeElements = Integer.parseInt(properties.getProperty("cacheSizeElements"));
+        }
+        catch (Exception e){
+            System.out.println("No Cache settings specified....using defaults");
+
+            //Default Values
+            cacheDuration = 0;
+            cacheSizeBytes=Integer.MAX_VALUE;
+            cacheSizeElements=Integer.MAX_VALUE;
+        }
     }
 
     @Override
-    public V get(K key){
+    final public V get(K key){
         V val = data.get(key);
 
         if(data.get(key) == null || refreshCacheEntry(key)) {
@@ -40,15 +50,15 @@ public abstract class Cache<K,V> implements ICache<K,V> {
         return val;
     }
 
-    public void put(K key,V value){
+    final public void set(K key,V value){
         insert(key,value);
     }
 
-    private boolean refreshCacheEntry(K key){
+    final private boolean refreshCacheEntry(K key){
         return (Calendar.getInstance().getTimeInMillis() - metadata.get(key)) > cacheDuration;
     }
 
-    private long size(Object o) {
+    final private long size(Object o) {
         ByteArrayOutputStream bo = null;
         ObjectOutput out=null;
         try {
@@ -68,7 +78,7 @@ public abstract class Cache<K,V> implements ICache<K,V> {
         return 0;
     }
 
-    private void insert(K key,V value) {
+    final private void insert(K key,V value) {
         while(cacheSizeElements > 0 && data.size() >= cacheSizeElements) {
             K k = lru.get(lru.firstKey());
             data.remove(k);
@@ -98,5 +108,12 @@ public abstract class Cache<K,V> implements ICache<K,V> {
         metadata.put(key, timestamp);
     }
 
+    final public int size(){
+        int size = 0;
+        for(K key : data.keySet())
+            size = size + (refreshCacheEntry(key)? 0: 1);
+        return size;
+    }
+    //Force definition of a load method
     protected abstract V load(K key);
 }
