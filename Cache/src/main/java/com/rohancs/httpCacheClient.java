@@ -1,24 +1,33 @@
 package com.rohancs;
 
 import javax.annotation.ManagedBean;
-import javax.management.MBeanServer;
+import javax.management.JMX;
+import javax.management.MBeanServerConnection;
 import javax.management.ObjectName;
+import javax.management.remote.JMXConnector;
+import javax.management.remote.JMXConnectorFactory;
+import javax.management.remote.JMXServiceURL;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import java.lang.management.ManagementFactory;
 
 @ManagedBean
 @Path("/")
-public  class httpCacheClient {
-    MBeanServer mbs = null;
-    ObjectName name = null;
-    public httpCacheClient(){
+public  class HttpCacheClient {
+    final static int JMX_PORT = 8009;
+    final static String JMX_HOST = "localhost";
+    CacheServerMBean cacheProxy = null;
+
+    public HttpCacheClient(){
         try {
-            mbs = ManagementFactory.getPlatformMBeanServer();
-            name = new ObjectName("com.rohancs:type=CacheServer");
+            JMXServiceURL url = new JMXServiceURL("service:jmx:rmi:///jndi/rmi://"+JMX_HOST+":"+JMX_PORT+"/jmxrmi");
+            JMXConnector jmxc = JMXConnectorFactory.connect(url, null);
+            MBeanServerConnection mbsc = jmxc.getMBeanServerConnection();
+
+            ObjectName cacheServer = new ObjectName("com.rohancs:type=CacheServer");
+            cacheProxy = JMX.newMBeanProxy(mbsc, cacheServer, CacheServerMBean.class, true);
         }
         catch (Exception e){
             e.printStackTrace();
@@ -31,7 +40,7 @@ public  class httpCacheClient {
     public String getValue(@PathParam("key") String key) {
         String value = null;
         try{
-            value = (String) mbs.invoke(name,"get",new Object[] {key},new String[]{"java.lang.String"});
+            value = cacheProxy.get(key);
         }
         catch (Exception e){
             e.printStackTrace();
@@ -46,7 +55,7 @@ public  class httpCacheClient {
     @Produces(MediaType.TEXT_PLAIN)
     public String setValue(@PathParam("key") String key,@PathParam("value") String value) {
         try{
-            mbs.invoke(name,"set",new Object[] {key,value},new String[]{"java.lang.String","java.lang.String"});
+            cacheProxy.set(key, value);
         }catch (Exception e){
             e.printStackTrace();
             return "false";
@@ -61,7 +70,7 @@ public  class httpCacheClient {
     public int getCacheSize() {
         int size = -1;
         try{
-            size = (Integer) mbs.invoke(name,"size",null,null);
+            size = cacheProxy.size();
         }catch (Exception e){
             e.printStackTrace();
         }

@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Cache/Cache.iml" filepath="$PROJECT_DIR$/Cache/Cache.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Home.iml" filepath="$PROJECT_DIR$/Home.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HttpRestWebService.iml" filepath="$PROJECT_DIR$/HttpRestWebService.iml" />
     </modules>
   </component>
 </project>
