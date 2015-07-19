@@ -4,7 +4,7 @@
     <list default="true" id="a413a034-5075-4a15-a710-a7291d4f68bb" name="Default" comment="">
       <change type="MOVED" beforePath="C:\Developer\Projects\HttpRestWebService\Cache\target\classes\com\rohancs\HttpCacheClient.class" afterPath="$PROJECT_DIR$/Cache/target/classes/com/rohancs/httpCacheClient.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Cache/target/classes/com/rohancs/HttpClientMain.class" afterPath="$PROJECT_DIR$/Cache/target/classes/com/rohancs/HttpClientMain.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Cache/src/main/java/com/rohancs/HttpClientMain.java" afterPath="$PROJECT_DIR$/Cache/src/main/java/com/rohancs/HttpClientMain.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="4b06a8bc-9faa-4e2e-b059-89559b16ce4e" name="Failed commit: Default" comment="Used Remote JMX Agent / Client to connect Http Client Via RMI to remote CacheServer services" />
@@ -42,14 +42,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HttpClientMain.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="HttpClientMain.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Cache/src/main/java/com/rohancs/HttpClientMain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.605598" vertical-offset="0" max-vertical-offset="595">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
               <caret line="14" column="56" selection-start-line="14" selection-start-column="56" selection-end-line="14" selection-end-column="56" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="1.4320652" vertical-offset="0" max-vertical-offset="629">
+              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -86,6 +96,7 @@
         <option value="$PROJECT_DIR$/Cache/src/main/java/com/rohancs/tools/HttpClientMain.java" />
         <option value="$PROJECT_DIR$/Cache/src/main/java/com/rohancs/httpCacheClient.java" />
         <option value="$PROJECT_DIR$/Cache/src/main/java/com/rohancs/HttpClientMain.java" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -548,7 +559,13 @@
       <option name="project" value="LOCAL" />
       <updated>1437333647544</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Used Remote JMX Agent / Client to connect Http Client Via RMI to remote CacheServer services">
+      <created>1437333875544</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1437333875544</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -558,7 +575,7 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32961783" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32961783" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32961783" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -593,11 +610,13 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
     <MESSAGE value="Used Remote JMX Agent / Client to connect Http Client Via RMI to remote CacheServer services" />
-    <option name="LAST_COMMIT_MESSAGE" value="Used Remote JMX Agent / Client to connect Http Client Via RMI to remote CacheServer services" />
+    <MESSAGE value="updated Readme file" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated Readme file" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -669,11 +688,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Cache/src/main/java/com/rohancs/HttpClientMain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.605598" vertical-offset="0" max-vertical-offset="595">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
           <caret line="14" column="56" selection-start-line="14" selection-start-column="56" selection-end-line="14" selection-end-column="56" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.4320652" vertical-offset="0" max-vertical-offset="629">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

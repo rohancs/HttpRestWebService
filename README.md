@@ -3,13 +3,29 @@
 Instructions:
   
   1. Set Cache Settings in ~\Cache\src\main\resources\cache.properties
-  2. Run Main.java to launch Cache, MBean Server, Http Server
-  3. Open Web Browser to test:
-  <br />
-  GET Key Value from Cache => http://localhost:8008/Cache/get/foo
-  <br />
-  PUT Key/Value (foo/bar) in Cache => http://localhost:8008/Cache/set/foo/bar
-  <br />
-  GET Cache  Size => http://localhost:8008/Cache/size
 
-  4. Optionally impement load method on CacheServer to load cache when there is a cache miss.
+  Launching Cache Server:
+  1. Run "CacheServerMain.java" with following JVM options:
+      -Dcom.sun.management.jmxremote.port=8009
+      -Dcom.sun.management.jmxremote.authenticate=false
+      -Dcom.sun.management.jmxremote.ssl=false
+
+  2. The Service should start on port:8009 (default).
+
+  Launching Http Rest Service:
+  1. Run "HttpClientMain.java"
+  2. This launches a REST web service end point at port 8008
+
+  NOTE:
+  Optionally implement load method on "CacheServer.java" to load cache when there is a cache miss.
+
+
+  Test Cases:
+  3. Open Web Browser:
+  <br />
+  GET Test=> http://localhost:8008/Cache/get/foo
+  <br />
+  PUT Test => http://localhost:8008/Cache/set/foo/bar
+  <br />
+  Cache Size => http://localhost:8008/Cache/size
+
