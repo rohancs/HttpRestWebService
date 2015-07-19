@@ -1,6 +1,6 @@
 # HttpRestWebService
 
-Instructions:
+##Instructions:
   
   1. Set Cache Settings in ~\Cache\src\main\resources\cache.properties
 
@@ -19,8 +19,7 @@ Instructions:
   NOTE:
   Optionally implement load method on "CacheServer.java" to load cache when there is a cache miss.
 
-
-  ## Test Cases:
+## Test Cases:
   Open Web Browser:
   <br />
   GET Test=> http://localhost:8008/Cache/get/foo
