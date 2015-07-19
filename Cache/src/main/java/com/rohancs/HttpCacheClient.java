@@ -15,12 +15,12 @@ import javax.ws.rs.core.MediaType;
 
 @ManagedBean
 @Path("/")
-public  class httpCacheClient {
+public  class HttpCacheClient {
     final static int JMX_PORT = 8009;
     final static String JMX_HOST = "localhost";
     CacheServerMBean cacheProxy = null;
 
-    public httpCacheClient(){
+    public HttpCacheClient(){
         try {
             JMXServiceURL url = new JMXServiceURL("service:jmx:rmi:///jndi/rmi://"+JMX_HOST+":"+JMX_PORT+"/jmxrmi");
             JMXConnector jmxc = JMXConnectorFactory.connect(url, null);
