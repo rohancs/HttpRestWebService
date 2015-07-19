@@ -20,8 +20,8 @@ Instructions:
   Optionally implement load method on "CacheServer.java" to load cache when there is a cache miss.
 
 
-  Test Cases:
-  3. Open Web Browser:
+  ## Test Cases:
+  Open Web Browser:
   <br />
   GET Test=> http://localhost:8008/Cache/get/foo
   <br />
