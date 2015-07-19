@@ -17,7 +17,7 @@ public class HttpClientMain {
         cacheServlet.setInitOrder(0);
         cacheServlet.setInitParameter(
                 "jersey.config.server.provider.classnames",
-                HttpCacheClient.class.getCanonicalName());
+                httpCacheClient.class.getCanonicalName());
         server.setHandler(context);
         try {
             server.start();
