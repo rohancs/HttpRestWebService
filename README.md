@@ -3,6 +3,11 @@
 ##Instructions:
   
   Set Cache Settings in ~\Cache\src\main\resources\cache.properties
+  Sample properties file:
+
+      cacheDuration=30000
+      cacheSizeBytes=150000
+      cacheSizeElements=10
 
 ### Launching Cache Server:
   Run "CacheServerMain.java" with following JVM options:
